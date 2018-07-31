@@ -17,7 +17,7 @@ class RapidcheckConan(ConanFile):
         self.run("cd rapidcheck && git checkout master")
         # This small hack might be useful to guarantee proper /MT /MD linkage in MSVC
         # if the packaged project doesn't have variables to set it properly
-        tools.replace_in_file("rapidcheck/CMakeLists.txt", "project(rapidcheck)", '''project(rapidcheck)
+        tools.replace_in_file("rapidcheck/CMakeLists.txt", "project(rapidcheck CXX)", '''project(rapidcheck)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()''')
 
